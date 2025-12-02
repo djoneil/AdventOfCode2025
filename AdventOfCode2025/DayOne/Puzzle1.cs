@@ -4,7 +4,8 @@ public class Puzzle1
 {
     public static void PartOne()
     {
-        var commands = File.ReadAllLines("C:\\Users\\danon\\RiderProjects\\AdventOfCode2025\\AdventOfCode2025\\AdventOfCode2025\\DayOne\\user_input")
+        var filePath = Path.Combine("DayOne", "user_input");
+        var commands = File.ReadAllLines(filePath)
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .ToList();
 
@@ -41,7 +42,8 @@ public class Puzzle1
 
     public static void PartTwo()
     {
-        var commands = File.ReadAllLines("C:\\Users\\danon\\RiderProjects\\AdventOfCode2025\\AdventOfCode2025\\AdventOfCode2025\\DayOne\\user_input")
+        var filePath = Path.Combine("DayOne", "user_input");
+        var commands = File.ReadAllLines(filePath)
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .ToList();
 

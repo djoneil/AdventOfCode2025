@@ -11,4 +11,10 @@
       <Folder Include="Data\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="DayOne\user_input">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
