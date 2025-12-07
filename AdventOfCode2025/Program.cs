@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2025.DayOne;
+using AdventOfCode2025.DayTwo;
 
 namespace AdventOfCode2025;
 
@@ -8,5 +9,7 @@ class Program
     {
        Puzzle1.PartOne();
        Puzzle1.PartTwo();
+       
+       Puzzle2.PartOne();
     }
 }
