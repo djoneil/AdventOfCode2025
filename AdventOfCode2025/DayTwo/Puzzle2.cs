@@ -1,8 +1,10 @@
-﻿namespace AdventOfCode2025.DayTwo;
+﻿using System.Text;
+
+namespace AdventOfCode2025.DayTwo;
 
 public class Puzzle2
 {
-    public static void PartOne() 
+    public static void PartOne()
     {
         // Implementation for Day Two, Part One
         var filePath = Path.Combine("DayTwo", "user_input");
@@ -21,27 +23,43 @@ public class Puzzle2
 
             for (var i = firstId; i <= lastId; i++)
             {
-                if(HasRepeatedDigits(i))
+                if (HasRepeatedDigits(i.ToString()))
                 {
                     duplicateCount += i;
                 }
             }
         }
-        
+
         Console.WriteLine("Count of numbers with repeated digits: " + duplicateCount);
     }
 
-    public static bool HasRepeatedDigits(long number)
+    public static bool HasRepeatedDigits(string number)
     {
-        var numberStr = number.ToString();
         // Split number in half to compare both halves to see if they're identical
-        var firstHalf = numberStr.Substring(0, numberStr.Length / 2);
-        var secondHalf = numberStr.Substring(numberStr.Length / 2);
-        if (firstHalf == secondHalf)
+        var len = number.Length;
+
+        for (var blockLength = 1; blockLength <= len / 2; blockLength++)
         {
-            return true;
+            if (len % blockLength != 0)
+            {
+                continue;
+            }
+
+            var block = number.Substring(0, blockLength);
+            int repeats = len / blockLength;
+
+            StringBuilder sb = new StringBuilder(len);
+            for (var i = 0; i < repeats; i++)
+            {
+                sb.Append(block);
+            }
+
+            if (sb.ToString() == number)
+            {
+                return true;
+            }
         }
-        
+
         return false;
     }
 }
